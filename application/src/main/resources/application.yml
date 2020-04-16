@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+    driverClassName: org.postgresql.Driver
+
+camunda:
+  bpm:
+    database:
+      type: postgres
+    admin-user:
+      id: admin
+      password: admin
+      firstName: Admin

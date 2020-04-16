@@ -1,0 +1,30 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.6.RELEASE' apply false
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE' apply false
+    id 'io.freefair.lombok' version '4.0.1' apply false
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+ext {
+    camundaVersion = '3.4.2'
+    postgresqlVersion = '42.2.1'
+}
+
+configure(subprojects) {
+
+    apply plugin: 'io.spring.dependency-management'
+
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+
+    dependencyManagement {
+        dependencies {
+            dependency "org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-webapp:$camundaVersion"
+            dependency "org.postgresql:postgresql:$postgresqlVersion"
+        }
+    }
+}
